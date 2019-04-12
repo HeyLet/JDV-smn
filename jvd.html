@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+
+<head>
+    <title>Jogo da Velha</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="jogo.css">
+    <script src="game.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="mostrar">
+        <p>Ecolha seu Jogo:</p>
+        <img id="xis" src="Imagens/x.png">
+        <img id="bola" src="Imagens/bolinha.png">
+        <button type="button" onclick="resetar()" class="botao">Resetar</button>
+    </div>
+
+
+    <div class="jogo">
+        <div class="pai">
+            <div id="a1" class="espaco" onclick="Jogada(this)"></div>
+            <div id="a2" class="espaco" onclick="Jogada(this)"></div>
+            <div id="a3" class="espaco" onclick="Jogada(this)"></div>
+        </div>
+        <div class="pai">
+            <div id="b1" class="espaco" onclick="Jogada(this)"></div>
+            <div id="b2" class="espaco" onclick="Jogada(this)"></div>
+            <div id="b3" class="espaco" onclick="Jogada(this)"></div>
+        </div>
+        <div class="pai">
+            <div id="c1" class="espaco" onclick="Jogada(this)"></div>
+            <div id="c2" class="espaco" onclick="Jogada(this)"></div>
+            <div id="c3" class="espaco" onclick="Jogada(this)"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

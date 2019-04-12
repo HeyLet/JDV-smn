@@ -1,0 +1,78 @@
+.jogo {
+    height: 200px;
+    width: 200px;
+    width: 806px;
+    display: flex;
+}
+
+.espaco {
+    height: 200px;
+    width: 200px;
+    border: 1px solid #fff;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.botao {
+    float: right;
+    color: white;
+    background-color: rebeccapurple;
+    position: relative;
+    margin-top: 6px;
+    margin-right: 92px;
+    width: 109px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.botao:hover {
+    background-color: #000;
+}
+
+#a3,
+#b3,
+#c3 {
+    border-bottom-color: transparent;
+}
+
+#c1,
+#c2,
+#c3 {
+    border-right-color: transparent;
+}
+
+#a3,
+#b3,
+#c3 {
+    border-bottom-color: transparent;
+}
+
+.pai {
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#mostrar {
+    margin: auto;
+    margin-top: 80px;
+    margin-right: 300px;
+    width: 200px;
+    float: right;
+    color: #fff;
+}
+
+body {
+    background-color: #000;
+    width: 100%
+}
+
+#xis,
+#bola {
+    height: 50px;
+    width: 50px;
+}

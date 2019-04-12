@@ -1,0 +1,42 @@
+.jogo {height: 200px;
+width: 200px;
+width: 806px;
+}
+
+.espaco{
+height: 200px;
+width: 200px;
+border: 2px solid #111;
+
+float: left;
+}
+
+.tabuleiro{
+width: 200px;
+height:200px;
+background-color: #111 
+}
+
+
+
+
+
+		
+}
+
+	
+
+.img{
+background-image: url("Imagens/x.png");
+background-repeat: no-repeat;
+background-position: center;
+height: 200px;
+width: 200px;
+
+	}
+#mostrar{
+margin: auto;
+margin-top: 100px;
+margin-bottom: 90px;
+width: 100px;
+}
