@@ -6,33 +6,51 @@
 <head>
     <title>Jogo da Velha</title>
     <meta charset="utf-8">
+    <meta name="viewpor" content="largura = largura do dispositivo, escala inicial = 1.0">
     <link rel="stylesheet" type="text/css" href="jogo.css">
     <script src="game.js"></script>
 </head>
+
+</table>
+<label for="facil">Fácil</label>
+<input id="facil" type="radio" name="dificuldade" checked>
+<label for="medio">Médio</label>
+<input id="medio" type="radio" name="dificuldade">
+<label for="dificil">Difícil</label>
+<input id="dificil" type="radio" name="dificuldade">
+</table>
 
 <body>
     <div>
         <div class="main">
             <div id="mostrar">
-                <p style="float: left;">Vez do jogador</p>
-                <img src="Imagens/x.png" height="50"> </div>
+
+                <img id="xis" src="Imagens/x.png">
+                <img id="bola" src="Imagens/bolinha.png"> <button type="button" onclick="novoJogo()" class="botao">Zerar placar</button>
+
+                <button type="button" onclick="resetar()" class="botao">Resetar</button></div>
             <div class='placar' id="placarXis">
                 <p>0</p>
+
             </div>
             <div class='placar2' id='placarBolinha'>
                 <p>0</p>
-            </div>
-            <button type="button" onclick="resetar()" class="botao">resetar</button>
-            <button type="button" onclick="novoJogo()" class="botao">novo jogo</button>
 
-            <!---<img id="xis" src="Imagens/x.png">
-            <img id="bola" src="Imagens/bolinha.png">-->
+            </div>
+
+
+
+
         </div>
+
 
         <select id="tipo" onchange="tipoDejogo()" oninput="tipoDejogo()">
         <option value="maquina">Jogue com a Maquina</option>
         <option value="jogue">Jogue com um amigo</option>
     </select>
+
+
+
 
 
         <div class="jogo">

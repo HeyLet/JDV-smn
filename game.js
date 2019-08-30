@@ -8,6 +8,9 @@ var resetar
 var placarX = 0;
 var placarO = 0;
 var numerodejogadas = 0; //todos os blocos numero de jogadas
+var bloquearUser = false;
+var dificuldade = getDificuldade;
+var randomBloq
 
 //Função do onclick
 function jogada(espaco) {
@@ -31,9 +34,23 @@ function jogada(espaco) {
     }
 }
 
+function getDificuldade() {
+    if (document.getElementById("facil").checked) {
+        return 0;
+    }
+    if (document.getElementById("medio").checked) {
+        return 1;
+    }
+    if (document.getElementById("dificil").checked) {
+        return 2;
+    }
+}
+
+
 function jogadaJogador(espaco) {
     jogada(espaco)
     jogadaCpu();
+
 }
 
 //jogada do computador
@@ -55,11 +72,30 @@ function jogadaCpu() {
     })
     var index = Math.floor(Math.random() * vetVazio.length);
 
+    console.log();
+    switch (dificuldade) {
+        case 0:
+            if (vetVazio >= 7) {
+                bloquearUser = true;
+            }
+            break;
+        case 1:
+            if (vetVazio >= 5) {
+                bloquearUser = true;
+            }
+            break;
+        case 2:
+            if (vetVazio >= 2) {
+                bloquearUser = true;
+            }
+            break;
+    }
 
-    console.log(vetVazio[index]);
     setTimeout(() => {
         jogada(vetVazio[index]);
     }, 500);
+
+
 }
 
 async function verificaVencedor() {
