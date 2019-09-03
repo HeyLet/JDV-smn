@@ -1,60 +1,72 @@
 var imagemX = 'Imagens/x.png'; //Local da imagem X
 var imagemO = 'Imagens/Bolinha.png'; // Local da imagem Bolinha
 var comparaO = '<img src="Imagens/Bolinha.png" style=" width: 200px; height: 200px background-size: 200px">'
-var controle = false; // variavel para preenchimento dos quadrados 
+var controle = null; // variavel para preenchimento dos quadrados 
 var vencedor = '';
 var fimDeJogo = false;
 var resetar
 var placarX = 0;
 var placarO = 0;
-var numerodejogadas = 0; //todos os blocos numero de jogadas
-var bloquearUser = false;
-var dificuldade = getDificuldade;
-var randomBloq
+var numerodejogadas = 0; //todos os blocos numero de jogadas;
+var disabled = false;
+var nivel = 1;
 
-//Função do onclick
+
+//Função de clique
 function jogada(espaco) {
+
     if (fimDeJogo == false) {
-        console.log(espaco.id)
-
         //preenche a imagem e bloqueia a mesma para nao se repetir
-        if (espaco.innerHTML == '') {
-            if (controle) {
-                espaco.innerHTML = `<img src = "${imagemO}" style=" width: 200px; height: 200px background-size: 200px"/>`;
-                // numerodejogadas = numerodejogadas + 1;
-                numerodejogadas += 1;
-                controle = !controle;
-            } else if (!controle) {
-                espaco.innerHTML = `<img src = "${imagemX}" style=" width: 200px; height: 200px background-size: 200px "/>`;
-                numerodejogadas += 1;
-                controle = !controle;
-            }
-            verificaVencedor();
+        if (controle == true) {
+            espaco.classList.add("clicado");
+            espaco.innerHTML = `<img src = "${imagemO}" style=" width: 200px; height: 200px background-size: 200px"/>`;
+            numerodejogadas += 1;
+            controle = !controle;
+
+        } else if (controle == false) {
+            espaco.innerHTML = `<img src = "${imagemX}" style=" width: 200px; height: 200px background-size: 200px "/>`;
+            espaco.classList.add("clicado");
+            numerodejogadas += 1;
+            controle = !controle;
+
         }
+        verificaVencedor();
     }
 }
 
-function getDificuldade() {
-    if (document.getElementById("facil").checked) {
-        return 0;
-    }
-    if (document.getElementById("medio").checked) {
-        return 1;
-    }
-    if (document.getElementById("dificil").checked) {
-        return 2;
+function botaoXis() {
+    if (controle == null) {
+        controle = false;
+        document.getElementById("xis").disabled = true;
+    } else {
+
     }
 }
 
+function botaoBolinha() {
+    if (controle == null) {
+        controle = true;
+        document.getElementById("bola").disabled = true;
+    } else {
+
+    }
+}
 
 function jogadaJogador(espaco) {
-    jogada(espaco)
-    jogadaCpu();
 
+    console.log(numerodejogadas)
+
+    if (espaco.classList.contains("clicado")) {
+
+    } else {
+        jogada(espaco)
+        jogadaCpu();
+    }
 }
 
 //jogada do computador
 function jogadaCpu() {
+
     var a1 = document.getElementById("a1");
     var a2 = document.getElementById("a2");
     var a3 = document.getElementById("a3");
@@ -71,25 +83,6 @@ function jogadaCpu() {
         return elemento.innerHTML === "";
     })
     var index = Math.floor(Math.random() * vetVazio.length);
-
-    console.log();
-    switch (dificuldade) {
-        case 0:
-            if (vetVazio >= 7) {
-                bloquearUser = true;
-            }
-            break;
-        case 1:
-            if (vetVazio >= 5) {
-                bloquearUser = true;
-            }
-            break;
-        case 2:
-            if (vetVazio >= 2) {
-                bloquearUser = true;
-            }
-            break;
-    }
 
     setTimeout(() => {
         jogada(vetVazio[index]);
@@ -153,7 +146,7 @@ async function verificaVencedor() {
     }
     if (vencedor == "" && numerodejogadas == 9) {
         await sleep(50);
-        alert("DEU VEIAAAAA");
+        alert("DEU VELHA!!");
     }
 
     if (vencedor != "") {
@@ -169,28 +162,55 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-//Função de novo jogo
-function resetar(espaco) {
+//Função de resetar
+function resetar() {
+
     document.getElementById("a1").innerHTML = "";
+    verificarClicado(document.getElementById("a1"))
+
     document.getElementById("a2").innerHTML = "";
+    verificarClicado(document.getElementById("a2"))
+
     document.getElementById("a3").innerHTML = "";
+    verificarClicado(document.getElementById("a3"))
+
     document.getElementById("b1").innerHTML = "";
+    verificarClicado(document.getElementById("b1"))
+
     document.getElementById("b2").innerHTML = "";
+    verificarClicado(document.getElementById("b2"))
+
     document.getElementById("b3").innerHTML = "";
+    verificarClicado(document.getElementById("b3"))
+
     document.getElementById("c1").innerHTML = "";
+    verificarClicado(document.getElementById("c1"))
+
     document.getElementById("c2").innerHTML = "";
+    verificarClicado(document.getElementById("c2"))
+
     document.getElementById("c3").innerHTML = "";
+    verificarClicado(document.getElementById("c3"))
+
     fimDeJogo = false;
-    controle = false; // vez do X de começar
+    controle = null;
     vencedor = "";
     numerodejogadas = 0;
+    document.getElementById("bola").disabled = false;
+    document.getElementById("xis").disabled = false;
 }
 
+//função de novo jogo
 function novoJogo(espaco) {
     resetar();
     placarO = 0;
     placarX = 0;
     placarXis.innerHTML = placarX;
     placarBolinha.innerHTML = placarO;
+}
 
+function verificarClicado(elemento) {
+    if (elemento.classList.contains("clicado")) {
+        elemento.classList.remove("clicado")
+    }
 }

@@ -16,44 +16,39 @@
 <input id="facil" type="radio" name="dificuldade" checked>
 <label for="medio">Médio</label>
 <input id="medio" type="radio" name="dificuldade">
-<label for="dificil">Difícil</label>
-<input id="dificil" type="radio" name="dificuldade">
+
 </table>
 
 <body>
-    <div>
-        <div class="main">
-            <div id="mostrar">
+    <div class="container">
+        <div class='placar'>
+            <div style="display: inline-flex;">
 
-                <img id="xis" src="Imagens/x.png">
-                <img id="bola" src="Imagens/bolinha.png"> <button type="button" onclick="novoJogo()" class="botao">Zerar placar</button>
-
-                <button type="button" onclick="resetar()" class="botao">Resetar</button></div>
-            <div class='placar' id="placarXis">
-                <p>0</p>
-
-            </div>
-            <div class='placar2' id='placarBolinha'>
-                <p>0</p>
-
+                <div class='score' id="placarXis">
+                    <span>0</span>
+                </div>
+                <div class='score' id="placarBolinha">
+                    <span>0</span>
+                </div>
             </div>
 
+            <div id="mostrar" style="display: flex; flex-direction: row; justify-content: space-around; width: 200px;">
+                <button type="button" onclick="botaoXis()" id="xis" class="btnEscolha"> 
+                    <img src="Imagens/x.png" width="70px" height="70px">
+                </button>
+                <button type="button" onclick="botaoBolinha()" id="bola" class="btnEscolha">
+                    <img src="Imagens/bolinha.png" width="70px" height="70px">
+                </button>
+            </div>
 
-
+            <div>
+                <button type="button" onclick="novoJogo()" class="botao">Zerar placar</button>
+                <button type="button" onclick="resetar()" class="botao">Resetar</button>
+            </div>
 
         </div>
-
-
-        <select id="tipo" onchange="tipoDejogo()" oninput="tipoDejogo()">
-        <option value="maquina">Jogue com a Maquina</option>
-        <option value="jogue">Jogue com um amigo</option>
-    </select>
-
-
-
-
-
         <div class="jogo">
+
             <div class="pai">
                 <div id="a1" class="espaco" onclick="jogadaJogador(this)"></div>
                 <div id="a2" class="espaco" onclick="jogadaJogador(this)"></div>
@@ -69,7 +64,6 @@
                 <div id="c2" class="espaco" onclick="jogadaJogador(this)"></div>
                 <div id="c3" class="espaco" onclick="jogadaJogador(this)"></div>
             </div>
-
         </div>
 
     </div>
