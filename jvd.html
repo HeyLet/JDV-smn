@@ -11,13 +11,19 @@
     <script src="game.js"></script>
 </head>
 
+<table>
+    <label for="facil">Fácil</label>
+    <input id="facil" type="radio" name="dificuldade" checked>
+    <label for="medio">Médio</label>
+    <input id="medio" type="radio" name="dificuldade">
 </table>
-<label for="facil">Fácil</label>
-<input id="facil" type="radio" name="dificuldade" checked>
-<label for="medio">Médio</label>
-<input id="medio" type="radio" name="dificuldade">
+<div>
+    <select id="tipo">
+                <option value="maquina">Jogue com a Máquina</option>
+               <option value="jogue">Jogue com um amigo</option>
+           </select>
+</div>
 
-</table>
 
 <body>
     <div class="container">
@@ -30,7 +36,13 @@
                 <div class='score' id="placarBolinha">
                     <span>0</span>
                 </div>
+
             </div>
+
+
+
+
+
 
             <div id="mostrar" style="display: flex; flex-direction: row; justify-content: space-around; width: 200px;">
                 <button type="button" onclick="botaoXis()" id="xis" class="btnEscolha"> 
@@ -39,9 +51,12 @@
                 <button type="button" onclick="botaoBolinha()" id="bola" class="btnEscolha">
                     <img src="Imagens/bolinha.png" width="70px" height="70px">
                 </button>
+
             </div>
 
             <div>
+
+
                 <button type="button" onclick="novoJogo()" class="botao">Zerar placar</button>
                 <button type="button" onclick="resetar()" class="botao">Resetar</button>
             </div>

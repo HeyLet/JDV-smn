@@ -56,8 +56,9 @@ p {
 select {
     position: absolute;
     border-radius: 20px;
-    margin-top: -176px;
-    justify-content: flex-start;
+    display: flex;
+    margin-top: -19px;
+    left: 154px;
 }
 
 label {
