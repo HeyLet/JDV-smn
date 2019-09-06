@@ -11,38 +11,35 @@
     <script src="game.js"></script>
 </head>
 
-<table>
-    <label for="facil">Fácil</label>
-    <input id="facil" type="radio" name="dificuldade" checked>
-    <label for="medio">Médio</label>
-    <input id="medio" type="radio" name="dificuldade">
 </table>
-<div>
-    <select id="tipo">
-                <option value="maquina">Jogue com a Máquina</option>
-               <option value="jogue">Jogue com um amigo</option>
-           </select>
-</div>
+<label for="facil">Fácil</label>
+<input id="facil" type="radio" name="dificuldade" checked>
+<label for="medio">Médio</label>
+<input id="medio" type="radio" name="dificuldade">
+</table>
 
+<div>
+    <select id="escolhaTipo" onchange="tipoDejogo();">
+        <option value="">Escolha um modo de jogo</option>
+        <option value="maquina">Jogue com a Máquina</option>
+        <option value="amigo">Jogue com um amigo</option>
+    </select>
+
+
+</div>
 
 <body>
     <div class="container">
         <div class='placar'>
             <div style="display: inline-flex;">
 
-                <div class='score' id="placarXis">
-                    <span>0</span>
+                <div class='score'>
+                    <span id="placarXis">0</span>
                 </div>
-                <div class='score' id="placarBolinha">
-                    <span>0</span>
+                <div class='score'>
+                    <span id="placarO">0</span>
                 </div>
-
             </div>
-
-
-
-
-
 
             <div id="mostrar" style="display: flex; flex-direction: row; justify-content: space-around; width: 200px;">
                 <button type="button" onclick="botaoXis()" id="xis" class="btnEscolha"> 
@@ -51,12 +48,9 @@
                 <button type="button" onclick="botaoBolinha()" id="bola" class="btnEscolha">
                     <img src="Imagens/bolinha.png" width="70px" height="70px">
                 </button>
-
             </div>
 
             <div>
-
-
                 <button type="button" onclick="novoJogo()" class="botao">Zerar placar</button>
                 <button type="button" onclick="resetar()" class="botao">Resetar</button>
             </div>
